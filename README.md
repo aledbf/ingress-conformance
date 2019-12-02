@@ -7,7 +7,7 @@ Conformance test suite for Kubernetes Ingress (POC)
 
 **TODO:**
 
-- [ ] Build docker image
+- [X] Build docker image
 - [ ] Use [Sonoboy](https://github.com/vmware-tanzu/sonobuoy) to run the tests
 - [ ] Use [httpexpect](github.com/gavv/httpexpect) library
 - [ ] Confirm the comments in e2e tests are parseable and compatible with k/k
