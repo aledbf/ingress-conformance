@@ -32,14 +32,11 @@ import (
 	runtimeutils "k8s.io/apimachinery/pkg/util/runtime"
 	clientset "k8s.io/client-go/kubernetes"
 	"k8s.io/component-base/logs"
-	"k8s.io/component-base/version"
 	"k8s.io/klog"
 	"k8s.io/kubernetes/test/e2e/framework"
 	e2elog "k8s.io/kubernetes/test/e2e/framework/log"
 	e2epod "k8s.io/kubernetes/test/e2e/framework/pod"
 	utilnet "k8s.io/utils/net"
-
-	//	commontest "k8s.io/kubernetes/test/e2e/common"
 
 	// ensure auth plugins are loaded
 	_ "k8s.io/client-go/plugin/pkg/client/auth"
@@ -48,8 +45,6 @@ import (
 )
 
 var _ = ginkgo.SynchronizedBeforeSuite(func() []byte {
-	// Reference common test to make the import valid.
-	//commontest.CurrentSuite = commontest.E2E
 	setupSuite()
 	return nil
 }, func(data []byte) {
@@ -106,12 +101,6 @@ func RunE2ETests(t *testing.T) {
 // accepting the byte array.
 func setupSuite() {
 	// Run only on Ginkgo node 1
-
-	switch framework.TestContext.Provider {
-	case "gce", "gke":
-		framework.LogClusterImageSources()
-	}
-
 	c, err := framework.LoadClientset()
 	if err != nil {
 		klog.Fatal("Error loading client: ", err)
@@ -155,9 +144,6 @@ func setupSuite() {
 		//e2ekubectl.LogFailedContainers(c, metav1.NamespaceSystem, framework.Logf)
 		framework.Failf("Error waiting for all pods to be running and ready: %v", err)
 	}
-
-	// Log the version of the server and this client.
-	framework.Logf("e2e test version: %s", version.Get().GitVersion)
 
 	dc := c.DiscoveryClient
 
