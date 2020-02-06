@@ -13,7 +13,8 @@ Conformance test suite for Kubernetes Ingress (POC)
 
 ```
 $ make build # build e2e.test binary
-$ make test  # runs e2e suite against an existing Kubernetes cluster (uses current context from KUBECONFIG)
+$ make test  # runs e2e suite against an existing Kubernetes cluster
+             # (uses current context from KUBECONFIG)
 ```
 
 --------
