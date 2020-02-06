@@ -17,7 +17,7 @@ build: check-go-version ## Build ginkgo e2e test binary
 	@./hack/build.sh
 
 build-image: build ## Build image to run conformance test suite
-	@make -c images/conformance
+	@make -C images/conformance build
 
 test: ## Run conformance tests
 	@./hack/run.sh
@@ -26,6 +26,7 @@ check-go-version:
 	@hack/check-go-version.sh
 
 dep-ensure: check-go-version ## Update and vendor go dependencies.
-	GO111MODULE=on go mod tidy -v
+	go mod tidy -v
 	find vendor -name '*_test.go' -delete
-	GO111MODULE=on go mod vendor
+	go mod vendor
+	./hack/generate-bindata.sh
