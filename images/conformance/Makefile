@@ -24,6 +24,7 @@ build:
 	cp ../../test/e2e/e2e.test e2e.test
 	docker buildx build \
 		--load \
+		--pull \
 		--progress plain \
 		--build-arg KUBE_VERSION=$(KUBE_VERSION) \
 		-t $(IMAGE):$(TAG) .
