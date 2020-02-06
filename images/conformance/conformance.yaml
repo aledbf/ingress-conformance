@@ -55,7 +55,7 @@ metadata:
 spec:
   containers:
   - name: conformance-container
-    image: aledbf/ingress-conformance:v02062020-3c9b36e
+    image: aledbf/ingress-conformance:v02062020-e1b0e98
     imagePullPolicy: Always
     env:
     - name: E2E_FOCUS
