@@ -12,7 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-all: docker-build docker-push
+all: build push
 
 KUBE_VERSION=$(shell curl -sS https://storage.googleapis.com/kubernetes-release/release/stable.txt)
 
@@ -20,14 +20,15 @@ REGISTRY ?= aledbf
 IMAGE = $(REGISTRY)/ingress-conformance
 TAG ?=v$(shell date +%m%d%Y)-$(shell git rev-parse --short HEAD)
 
-docker-build:
+build:
 	cp ../../test/e2e/e2e.test e2e.test
-	docker build \
-		--pull \
+	docker buildx build \
+		--load \
+		--progress plain \
 		--build-arg KUBE_VERSION=$(KUBE_VERSION) \
 		-t $(IMAGE):$(TAG) .
 
-docker-push:
+push:
 	docker push $(IMAGE):$(TAG)
 
 clean:
