@@ -1,6 +1,14 @@
 # ingress-conformance
 Conformance test suite for Kubernetes Ingress (POC)
 
+### How to run the e2e suite:
+
+- [Local binaries](#how-to-run-tests-using-binaries)
+- [Static pod](#how-to-run-tests-using-a-pod)
+- [Using sonobuoy](#how-to-run-tests-using-sonobuoy)
+
+--------
+
 #### How to run tests using binaries
 
 ```
@@ -8,11 +16,16 @@ $ make build # build e2e.test binary
 $ make test  # runs e2e suite against an existing Kubernetes cluster (uses current context from KUBECONFIG)
 ```
 
+--------
+
 #### How to run tests using a pod
 
 ```
 $ kubectl create -f images/conformance/conformance.yaml
 ```
+
+--------
+
 
 #### How to run tests using sonobuoy
 
@@ -26,7 +39,6 @@ Download a [binary release](https://github.com/heptio/sonobuoy/releases) of the 
 ```
 $ go get -u -v github.com/heptio/sonobuoy
 ```
-
 
 ##### run
 
@@ -52,6 +64,8 @@ $ sonobuoy e2e $results
 ```
 $ sonobuoy delete --wait
 ```
+
+--------
 
 **TODO:**
 
