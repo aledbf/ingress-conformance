@@ -2,7 +2,7 @@
 # And add help text after each target name starting with '\#\#'
 .DEFAULT_GOAL:=help
 
-.PHONY: help build build-image test dep-ensure check-go-version
+.PHONY: help build build-image test dep-ensure check-go-version update-conformance-list
 
 .EXPORT_ALL_VARIABLES:
 
@@ -29,6 +29,11 @@ test: ## Run conformance tests
 	E2E_VERBOSITY="4" \
 	E2E_BINARY="test/e2e/e2e.test" \
 	./images/conformance/e2e.sh
+
+update-conformance-list: ## Updates the document conformance.md with the currect e2e suite definition
+	@rm conformance.md
+	@go run test/conformance/walk.go \
+		--conformance=true test/e2e > conformance.md
 
 check-go-version:
 	@hack/check-go-version.sh

@@ -74,4 +74,4 @@ $ sonobuoy delete --wait
 - [X] Confirm the suite runs in a pod
 - [X] Use [Sonoboy](https://github.com/vmware-tanzu/sonobuoy) to run the tests
 - [ ] Use [httpexpect](github.com/gavv/httpexpect) library
-- [ ] Confirm the comments in e2e tests are parseable and compatible with k/k
+- [X] Confirm the comments in e2e tests are parseable and compatible with k/k
