@@ -17,10 +17,18 @@ build: check-go-version ## Build ginkgo e2e test binary
 	@./hack/build.sh
 
 build-image: build ## Build image to run conformance test suite
-	@make -C images/conformance build
+	@make -C images/conformance
 
 test: ## Run conformance tests
-	@./hack/run.sh
+	@mkdir -p "/tmp/results"
+	@RESULTS_DIR="/tmp/results" \
+	E2E_FOCUS="\\[Conformance\\]" \
+	E2E_SKIP="" \
+	E2E_PROVIDER="skeleton" \
+	E2E_PARALLEL="false" \
+	E2E_VERBOSITY="4" \
+	E2E_BINARY="test/e2e/e2e.test" \
+	./images/conformance/e2e.sh
 
 check-go-version:
 	@hack/check-go-version.sh
