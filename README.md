@@ -1,6 +1,8 @@
 # ingress-conformance
 Conformance test suite for Kubernetes Ingress (POC)
 
+### List of [Conformance tests](conformance.md)
+
 ### How to run the e2e suite:
 
 - [Local binaries](#how-to-run-tests-using-binaries)
