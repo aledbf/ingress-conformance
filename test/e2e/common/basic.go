@@ -26,11 +26,11 @@ var _ = ginkgo.Describe("[sig-network] Ingress", func() {
 	framework.NewDefaultFramework("defaultbackend")
 
 	/*
-	   Release : v1.17
-	   Testname: Ingress ...
-	   Description: ...
+	   Testname: Ingress without host rule or path should send traffic to the default backend service using path /
+	   Description: Without a path, Ingress assumes / as default path
+	   Release : v1.19
 	*/
-	framework.ConformanceIt("should ...", func() {
+	framework.ConformanceIt("should send traffic to the default backend service using path /", func() {
 		framework.SkipIfNodeOSDistroIs("windows")
 	})
 })
