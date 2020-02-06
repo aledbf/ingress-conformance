@@ -12,7 +12,7 @@ there for the purposes of validating the platform rather than simply infrastruct
 clean up the tests.
 
 ## **List of Tests**
-## [Ingress without host rule or path should send traffic to the default backend service using path /](https://github.com/aledbf/ingress-conformance/tree/master/test/e2e/common/basic.go#L33)
+## [Without host rule or path should send traffic to the default backend](https://github.com/aledbf/ingress-conformance/tree/master/test/e2e/common/basic.go#L33)
 
 ### Release v1.19
 Without a path, Ingress assumes / as default path

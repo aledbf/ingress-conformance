@@ -26,7 +26,7 @@ var _ = ginkgo.Describe("[sig-network] Ingress", func() {
 	framework.NewDefaultFramework("defaultbackend")
 
 	/*
-	   Testname: Ingress without host rule or path should send traffic to the default backend service using path /
+	   Testname: Without host rule or path should send traffic to the default backend
 	   Description: Without a path, Ingress assumes / as default path
 	   Release : v1.19
 	*/
