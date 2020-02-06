@@ -41,6 +41,7 @@ import (
 	// ensure auth plugins are loaded
 	_ "k8s.io/client-go/plugin/pkg/client/auth"
 
+	// import tests to run
 	_ "github.com/aledbf/ingress-conformance/test/e2e/common"
 )
 
