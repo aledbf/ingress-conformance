@@ -1,7 +1,7 @@
 # ingress-conformance
 Conformance test suite for Kubernetes Ingress (POC)
 
-### Assumptions
+### Assumptions (open to change)
 
 - Tests will use an existing, running, Kubernetes cluster.
 - An ingress controller is installed and running.
@@ -12,6 +12,8 @@ Conformance test suite for Kubernetes Ingress (POC)
 - HTTPS tests should generate self signed certificates using the FQDN/IP address of the ingress to test.
 
 ### List of [Conformance tests](conformance.md)
+
+The file `conformance.md` **should not be edited manually** but only by running `make update-conformance-list`
 
 ### How to run the e2e suite:
 
