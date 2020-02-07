@@ -28,7 +28,7 @@ test: ## Run conformance tests
 	E2E_PARALLEL="false" \
 	E2E_VERBOSITY="4" \
 	E2E_BINARY="test/e2e/e2e.test" \
-	./images/conformance/e2e.sh
+	./images/conformance/run_e2e.sh
 
 update-conformance-list: ## Updates the document conformance.md with the currect e2e suite definition
 	@rm conformance.md
