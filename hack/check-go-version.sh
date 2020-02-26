@@ -22,7 +22,7 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
-MINIMUM_GO_VERSION=go1.13
+MINIMUM_GO_VERSION=go1.14
 
 if [[ -z "$(command -v go)" ]]; then
     echo "
@@ -37,7 +37,7 @@ IFS=" " read -ra go_version <<< "$(go version)"
 if [[ "${MINIMUM_GO_VERSION}" != $(echo -e "${MINIMUM_GO_VERSION}\n${go_version[2]}" | sort -s -t. -k 1,1 -k 2,2n -k 3,3n | head -n1) && "${go_version[2]}" != "devel" ]]; then
 	echo "
 Detected go version: ${go_version[*]}.
-ingress-nginx requires ${MINIMUM_GO_VERSION} or greater.
+ingress-conformance requires ${MINIMUM_GO_VERSION} or greater.
 
 Please install ${MINIMUM_GO_VERSION} or later.
 "

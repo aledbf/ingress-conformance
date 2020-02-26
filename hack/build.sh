@@ -8,6 +8,8 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
+KUBE_ROOT=$(dirname "${BASH_SOURCE[0]}")/..
+
 export GO111MODULE=off
 
-ginkgo build ./test/e2e/
+ginkgo build ${KUBE_ROOT}/test/e2e/
